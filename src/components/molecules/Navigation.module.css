@@ -1,0 +1,56 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(5, 5, 5, 0.7);
+    /* Dark Void Glass */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-lg);
+}
+
+.menu {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.link {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    /* Muted gray default */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: var(--color-text-primary);
+    /* White on hover */
+}
+
+/* Button override for nav CTA */
+.navButton {
+    margin-left: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+}

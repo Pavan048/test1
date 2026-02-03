@@ -1,0 +1,92 @@
+.hero {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg-void);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Updated Gradient: More subtle to let canvas shine */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Ensure text is above canvas */
+    max-width: 900px;
+    padding: 0 var(--spacing-lg);
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--color-accent-primary);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(4px);
+    /* Glass effect on badge too */
+}
+
+.title {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-extraBold);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tighter);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subheadline {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 48px;
+    }
+}

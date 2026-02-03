@@ -1,0 +1,54 @@
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    counter-reset: step;
+}
+
+.step {
+    position: relative;
+    padding-top: var(--spacing-xl);
+}
+
+.step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-family-mono);
+    font-size: 64px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    z-index: 0;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-h4);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.text {
+    position: relative;
+    z-index: 1;
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-base);
+}
+
+/* Connectivity line */
+.steps {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .steps {
+        grid-template-columns: 1fr;
+    }
+}
