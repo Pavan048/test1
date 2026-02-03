@@ -11,8 +11,8 @@
 }
 
 .symbol {
-    width: 20px;
-    height: 20px;
-    background: var(--gradient-primary);
-    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px var(--color-accent-primary));
 }

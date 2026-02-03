@@ -17,7 +17,7 @@
 
 .primary {
     background: var(--gradient-primary);
-    color: var(--color-text-primary);
+    color: var(--color-text-inverse);
     border: none;
 }
 
@@ -43,8 +43,7 @@
 }
 
 .secondary {
-    background: rgba(255, 255, 255, 0.05);
-    /* Glass */
+    background: var(--color-bg-glass);
     color: var(--color-text-primary);
     border: 1px solid var(--color-border-subtle);
 }

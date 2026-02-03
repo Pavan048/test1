@@ -20,5 +20,6 @@ export const colors = {
     border: {
         subtle: '#27272A', // Zinc 800
         highlight: '#3F3F46',
-    }
+    },
+    shadow: 'rgba(0,0,0,0.5)',
 }

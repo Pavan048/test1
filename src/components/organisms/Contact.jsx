@@ -11,7 +11,7 @@ const Contact = () => {
                 <p className={styles.subtext}>
                     Let's discuss how Yaare can help you build your next big idea.
                 </p>
-                <Button href="mailto:hello@yaare.com" variant="primary">
+                <Button href="mailto:yaare.team@gmail.com" variant="primary">
                     Get a Quote
                 </Button>
             </div>

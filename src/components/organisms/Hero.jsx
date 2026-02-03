@@ -17,8 +17,8 @@ const Hero = () => {
                     Yaare is a full-service development agency. We design and engineer custom web, mobile, and AI solutions that drive real business growth.
                 </p>
                 <div className={styles.actions}>
-                    <Button href="#sales" variant="primary">Discuss Your Project</Button>
-                    <Button href="#services" variant="secondary">View Services</Button>
+                    <Button href="#contact" variant="primary">Discuss Your Project</Button>
+                    <Button href="#solutions" variant="secondary">View Services</Button>
                 </div>
             </div>
         </section>

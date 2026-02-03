@@ -19,7 +19,8 @@
     font-family: var(--font-family-mono);
     font-size: 64px;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-tertiary);
+    opacity: 0.15;
     line-height: 1;
     z-index: 0;
 }

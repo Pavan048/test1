@@ -16,14 +16,13 @@ const Footer = () => {
                 <div className={styles.column}>
                     <h4 className={styles.heading}>Platform</h4>
                     <a href="#solutions" className={styles.link}>Solutions</a>
-                    <a href="#tech-stack" className={styles.link}>Tech Stack</a>
                     <a href="#engine" className={styles.link}>How it Works</a>
                 </div>
                 <div className={styles.column}>
                     <h4 className={styles.heading}>Company</h4>
-                    <a href="#" className={styles.link}>About</a>
-                    <a href="#" className={styles.link}>Careers</a>
-                    <a href="mailto:hello@yaare.com" className={styles.link}>Contact</a>
+                    <a href="#hero" className={styles.link}>About</a>
+                    <a href="#contact" className={styles.link}>Careers</a>
+                    <a href="mailto:yaare.team@gmail.com" className={styles.link}>Contact</a>
                 </div>
             </div>
         </footer>

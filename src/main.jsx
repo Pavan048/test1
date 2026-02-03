@@ -6,26 +6,27 @@ import { colors } from './tokens/colors'
 import { typography } from './tokens/typography'
 import { spacing } from './tokens/spacing'
 
-const injectTokens = () => {
+export const injectTokens = (theme = colors) => {
   const root = document.documentElement;
 
-  // Colors - Updated for V2
-  root.style.setProperty('--color-bg-void', colors.background.void);
-  root.style.setProperty('--color-bg-surface', colors.background.surface);
-  root.style.setProperty('--color-bg-glass', colors.background.glass);
+  // Colors
+  root.style.setProperty('--color-bg-void', theme.background.void);
+  root.style.setProperty('--color-bg-surface', theme.background.surface);
+  root.style.setProperty('--color-bg-glass', theme.background.glass);
 
-  root.style.setProperty('--color-text-primary', colors.text.primary);
-  root.style.setProperty('--color-text-secondary', colors.text.secondary);
-  root.style.setProperty('--color-text-tertiary', colors.text.tertiary);
-  root.style.setProperty('--color-text-inverse', colors.text.inverse);
+  root.style.setProperty('--color-text-primary', theme.text.primary);
+  root.style.setProperty('--color-text-secondary', theme.text.secondary);
+  root.style.setProperty('--color-text-tertiary', theme.text.tertiary);
+  root.style.setProperty('--color-text-inverse', theme.text.inverse);
 
-  root.style.setProperty('--color-accent-primary', colors.accent.primary);
-  root.style.setProperty('--color-accent-secondary', colors.accent.secondary);
-  root.style.setProperty('--color-border-subtle', colors.border.subtle);
+  root.style.setProperty('--color-accent-primary', theme.accent.primary);
+  root.style.setProperty('--color-accent-secondary', theme.accent.secondary);
+  root.style.setProperty('--color-border-subtle', theme.border.subtle);
+  root.style.setProperty('--color-shadow', theme.shadow);
 
   // Gradient helper
-  root.style.setProperty('--gradient-primary', `linear-gradient(135deg, ${colors.accent.primary}, ${colors.accent.secondary})`);
-  root.style.setProperty('--gradient-glow', `radial-gradient(circle at center, ${colors.accent.primary}50, transparent 70%)`);
+  root.style.setProperty('--gradient-primary', `linear-gradient(135deg, ${theme.accent.primary}, ${theme.accent.secondary})`);
+  root.style.setProperty('--gradient-glow', `radial-gradient(circle at center, ${theme.accent.primary}50, transparent 70%)`);
 
   // Typography
   root.style.setProperty('--font-family-sans', typography.fontFamily.sans);

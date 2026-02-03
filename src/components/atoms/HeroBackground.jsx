@@ -17,17 +17,22 @@ const HeroBackground = () => {
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Configuration
-        const particleCount = 100; // Increased count
-        const connectionDistance = 140;
-        const moveSpeed = 0.4;
+        const getThemeColor = () => {
+            return getComputedStyle(document.documentElement).getPropertyValue('--color-accent-primary').trim() || '#6366F1';
+        };
+
+        const config = {
+            particleCount: 100,
+            connectionDistance: 140,
+            moveSpeed: 0.4,
+            color: getThemeColor()
+        };
 
         class Particle {
             constructor(reset = false) {
                 if (reset) {
-                    // Spawn in center area
                     const angle = Math.random() * Math.PI * 2;
-                    const radius = Math.random() * 200; // Start clusters near center
+                    const radius = Math.random() * 200;
                     this.x = canvas.width / 2 + Math.cos(angle) * radius;
                     this.y = canvas.height / 2 + Math.sin(angle) * radius;
                 } else {
@@ -35,24 +40,16 @@ const HeroBackground = () => {
                     this.y = Math.random() * canvas.height;
                 }
 
-                this.vx = (Math.random() - 0.5) * moveSpeed;
-                this.vy = (Math.random() - 0.5) * moveSpeed;
-                this.size = Math.random() * 2 + 1.5; // Slightly larger
+                this.vx = (Math.random() - 0.5) * config.moveSpeed;
+                this.vy = (Math.random() - 0.5) * config.moveSpeed;
+                this.size = Math.random() * 2 + 1.5;
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Instead of bouncing, wrap around or reset to center to keep density
-                const distFromCenter = Math.sqrt(
-                    Math.pow(this.x - canvas.width / 2, 2) +
-                    Math.pow(this.y - canvas.height / 2, 2)
-                );
-
-                // If too far, gently nudge back or reset
                 if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                    // Reset to center
                     const angle = Math.random() * Math.PI * 2;
                     const radius = Math.random() * 100;
                     this.x = canvas.width / 2 + Math.cos(angle) * radius;
@@ -63,15 +60,14 @@ const HeroBackground = () => {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.6)'; // Brighter
+                ctx.fillStyle = config.color + '99'; // 0.6 opacity approx
                 ctx.fill();
             }
         }
 
         const init = () => {
             particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                // Initialize scattered but denser in middle
+            for (let i = 0; i < config.particleCount; i++) {
                 particles.push(new Particle(false));
             }
         };
@@ -79,22 +75,20 @@ const HeroBackground = () => {
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update and draw particles
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
             });
 
-            // Draw connections
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < connectionDistance) {
+                    if (distance < config.connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / connectionDistance})`; // Fade out
+                        ctx.strokeStyle = config.color + Math.floor((1 - distance / config.connectionDistance) * 255).toString(16).padStart(2, '0');
                         ctx.lineWidth = 1;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);

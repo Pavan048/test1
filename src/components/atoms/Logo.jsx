@@ -1,10 +1,10 @@
-import React from 'react';
+import logoImg from '../../assets/logo.svg';
 import styles from './Logo.module.css';
 
 const Logo = () => {
     return (
         <div className={styles.logo}>
-            <div className={styles.symbol} />
+            <img src={logoImg} alt="Yaare Logo" className={styles.symbol} />
             YAARE
         </div>
     );
