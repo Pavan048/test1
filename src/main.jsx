@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -13,6 +13,7 @@ export const injectTokens = (theme = colors) => {
   root.style.setProperty('--color-bg-void', theme.background.void);
   root.style.setProperty('--color-bg-surface', theme.background.surface);
   root.style.setProperty('--color-bg-glass', theme.background.glass);
+  root.style.setProperty('--color-bg-surfaceHighlight', theme.background.surfaceHighlight);
 
   root.style.setProperty('--color-text-primary', theme.text.primary);
   root.style.setProperty('--color-text-secondary', theme.text.secondary);
@@ -22,6 +23,7 @@ export const injectTokens = (theme = colors) => {
   root.style.setProperty('--color-accent-primary', theme.accent.primary);
   root.style.setProperty('--color-accent-secondary', theme.accent.secondary);
   root.style.setProperty('--color-border-subtle', theme.border.subtle);
+  root.style.setProperty('--color-accent-success', theme.accent.success);
   root.style.setProperty('--color-shadow', theme.shadow);
 
   // Gradient helper
